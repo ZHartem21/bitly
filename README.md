@@ -13,6 +13,11 @@ Use `pip` (or `pip3`, if there is a conflict with Python2) to install dependenci
 pip install -r requirements.txt
 ```
 
+To use it you must launch the main.py in terminal, with the first parameter being a URL you need to shorten or to check:
+```
+python main.py https://dvmn.org/
+```
+
 ### Project Goals
 
 This code was written for educational purposes as part of an online course for web developers at [dvmn.org](https://dvmn.org/).
