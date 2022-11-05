@@ -15,9 +15,10 @@ def shorten_link(token, link):
     headers = {'Authorization': 'Bearer {0}'.format(token)}
     payload = {'long_url': link}
     response = requests.post(
-        BITLINK_GENERATION_URL, 
+        BITLINK_GENERATION_URL,
         headers=headers,
-        json=payload)
+        json=payload
+    )
     response.raise_for_status()
     return response.json().get('link')
 
@@ -26,10 +27,9 @@ def count_clicks(token, link):
     headers = {'Authorization': 'Bearer {0}'.format(token)}
     parsed_link = urlparse(link)
     response = requests.get(
-        BITLINK_SUMMARY_URL.format(
-            parsed_link.netloc,
-            parsed_link.path), 
-        headers=headers)
+        BITLINK_SUMMARY_URL.format(parsed_link.netloc, parsed_link.path),
+        headers=headers
+    )
     response.raise_for_status()
     return response.json().get('total_clicks')
 
@@ -38,10 +38,9 @@ def is_bitlink(token, link):
     headers = {'Authorization': 'Bearer {0}'.format(token)}
     parsed_link = urlparse(link)
     response = requests.get(
-        BITLINK_CHECK_URL.format(
-            parsed_link.netloc,
-            parsed_link.path),
-        headers=headers)
+        BITLINK_CHECK_URL.format(parsed_link.netloc, parsed_link.path),
+        headers=headers
+    )
     return response.ok
 
 
